@@ -1,46 +1,31 @@
-// import './BookList.css';
-// import React, { useState, useEffect } from 'react';
-
-// function BookList() {
-//     const [books, setBooks] = useState([]);
-
-//     useEffect(() => {
-//         fetch('http://127.0.0.1:8000/api/books/')
-//         .then(response => response.json())
-//         .then(data => setBooks(data))
-//         .catch(error => console.error('Error fetching data:', error));
-//     }, []);
-
-//     return (
-//         <div>
-//             {books.map(book => (
-//                 <div key={book.id}>
-//                     <h2>{book.title}</h2>
-//                     <p>{book.author}</p>
-//                     <p>{book.text}</p>
-//                 </div>
-//             ))}
-//         </div>
-//     );
-// }
-
-// export default BookList;
-
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import DeleteButton from './DeleteButton';
+import './BookList.css'
 
-function BookList({ books, onEdit, onDelete }) {
+function BookList({ onDelete }) {
+    const [books, setBooks] = useState([]);
+
+    useEffect(() => {
+        // APIから本のリストを取得
+        fetch('http://127.0.0.1:8000/api/books/')
+            .then((response) => response.json())
+            .then((data) => setBooks(data));
+    }, []);
+
     return (
         <div>
-            {books.map((book) => (
-                <div key={book.id}>
-                    <h2>{book.title}</h2>
-                    <p>{book.author}</p>
-                    {/* 他のフィールドも表示 */}
-                    <button onClick={() => onEdit(book)}>Edit</button>
-                    <DeleteButton id={book.id} onDelete={onDelete} />
-                </div>
-            ))}
+            <h2>Book List</h2>
+            <ul>
+                {books.map((book) => (
+                    <li key={book.id}>
+                        {book.title} - {book.author}
+                        <Link to={`/edit/${book.id}`}>Edit</Link>
+                        <DeleteButton id={book.id} onDelete={onDelete} />
+                        
+                    </li>
+                ))}
+            </ul>
         </div>
     );
 }
