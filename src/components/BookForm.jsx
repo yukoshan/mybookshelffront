@@ -42,27 +42,35 @@ function BookForm() {
                     onChange={(e) => setAuthor(e.target.value)}
                     placeholder="Author"
                 />
-                <input
-                    type="date"
-                    value={readingdate}
-                    onChange={(e) => setReadingdate(e.target.value)}
-                    placeholder="Reading Date"
-                />
-                <input
-                    type="number"
-                    value={rate}
-                    onChange={(e) => setRate(e.target.value)}
-                    placeholder="Rate"
-                />
-                <select
-                    value={category}
-                    onChange={(e) => setCategory(e.target.value)}
-                >
-                    <option value="">Select Category</option>
-                    <option value="novel">小説</option>
-                    <option value="essay">エッセイ</option>
-                    <option value="practical">実用書</option>
-                </select>
+                <div className="form-row">
+                    <div>
+                        <input
+                            type="date"
+                            value={readingdate}
+                            onChange={(e) => setReadingdate(e.target.value)}
+                            placeholder="Reading Date"
+                        />
+                    </div>
+                    <div>
+                        <input
+                            type="number"
+                            value={rate}
+                            onChange={(e) => setRate(e.target.value)}
+                            placeholder="Rate"
+                        />
+                    </div>
+                    <div>
+                        <select
+                            value={category}
+                            onChange={(e) => setCategory(e.target.value)}
+                        >
+                            <option value="">Select Category</option>
+                            <option value="novel">小説</option>
+                            <option value="essay">エッセイ</option>
+                            <option value="practical">実用書</option>
+                        </select>
+                    </div>
+                </div>
                 <textarea
                     value={text}
                     onChange={(e) => setText(e.target.value)}

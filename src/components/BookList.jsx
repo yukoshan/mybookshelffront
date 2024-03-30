@@ -14,15 +14,16 @@ function BookList({ onDelete }) {
     }, []);
 
     return (
-        <div>
+        <div className="container">
             <h2>書籍一覧</h2>
             <ul>
                 {books.map((book) => (
                     <li key={book.id}>
-                        {book.title} - {book.author}
-                        <Link to={`/edit/${book.id}`}>Edit</Link>
-                        <DeleteButton id={book.id} onDelete={onDelete} />
-                        
+                        <span>{book.title} - {book.author}</span>
+                        <div className="buttons">
+                            <Link to={`/edit/${book.id}`}>Edit</Link>
+                            <DeleteButton id={book.id} onDelete={onDelete} />
+                        </div>
                     </li>
                 ))}
             </ul>
