@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import BookList from './components/BookList';
 import BookForm from './components/BookForm';
 import EditBookForm from './components/EditBookForm';
-// import DeleteButton from './components/DeleteButton';
 import './App.css'
 
 function App() {
@@ -28,14 +27,14 @@ function App() {
     return (
         <Router>
             <div className="App">
-                <h1>My Bookshelf</h1>
+                <h1>私の本棚</h1>
                 <nav>
                     <ul>
                         <li>
                             <Link to="/">Home</Link>
                         </li>
                         <li>
-                            <Link to="/add">Add Book</Link>
+                            <Link to="/add">書籍登録</Link>
                         </li>
                     </ul>
                 </nav>

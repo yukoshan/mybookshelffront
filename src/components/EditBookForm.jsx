@@ -7,6 +7,10 @@ function EditBookForm() {
     const { id } = useParams();
     const [title, setTitle] = useState('');
     const [author, setAuthor] = useState('');
+    const [readingdate, setReadingdate] = useState('');
+    const [rate, setRate] = useState('');
+    const [category, setCategory] = useState('');
+    const [text, setText] = useState('');
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -16,12 +20,16 @@ function EditBookForm() {
             .then((data) => {
                 setTitle(data.title);
                 setAuthor(data.author);
+                setReadingdate(data.readingdate);
+                setRate(data.rate);
+                setCategory(data.category);
+                setText(data.text);
             });
     }, [id]);
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        const bookData = { title, author };
+        const bookData = { title, author, readingdate, rate, category, text };
 
         fetch(`http://127.0.0.1:8000/api/books/${id}/`, {
             method: 'PUT',
@@ -49,6 +57,32 @@ function EditBookForm() {
                     value={author}
                     onChange={(e) => setAuthor(e.target.value)}
                     placeholder="Author"
+                />
+                <input
+                    type="date"
+                    value={readingdate}
+                    onChange={(e) => setReadingdate(e.target.value)}
+                    placeholder="Reading Date"
+                />
+                <input
+                    type="number"
+                    value={rate}
+                    onChange={(e) => setRate(e.target.value)}
+                    placeholder="Rate"
+                />
+                <select
+                    value={category}
+                    onChange={(e) => setCategory(e.target.value)}
+                >
+                    <option value="">Select Category</option>
+                    <option value="novel">小説</option>
+                    <option value="essay">エッセイ</option>
+                    <option value="practical">実用書</option>
+                </select>
+                <textarea
+                    value={text}
+                    onChange={(e) => setText(e.target.value)}
+                    placeholder="Text"
                 />
                 <button type="submit">Update</button>
             </form>

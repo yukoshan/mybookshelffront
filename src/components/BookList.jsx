@@ -15,7 +15,7 @@ function BookList({ onDelete }) {
 
     return (
         <div>
-            <h2>Book List</h2>
+            <h2>書籍一覧</h2>
             <ul>
                 {books.map((book) => (
                     <li key={book.id}>
