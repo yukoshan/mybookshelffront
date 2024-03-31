@@ -14,7 +14,6 @@ function EditBookForm() {
     const navigate = useNavigate();
 
     useEffect(() => {
-        // APIから本のデータを取得してフォームにセット
         fetch(`http://127.0.0.1:8000/api/books/${id}/`)
             .then((response) => response.json())
             .then((data) => {
@@ -38,25 +37,25 @@ function EditBookForm() {
         })
             .then((response) => response.json())
             .then(() => {
-              navigate('/'); // 一覧画面に戻る
+              navigate('/');
           });
     };
 
     return (
         <div>
-            <h2>Edit Book</h2>
+            <h2>書籍編集</h2>
             <form onSubmit={handleSubmit}>
                 <input
                     type="text"
                     value={title}
                     onChange={(e) => setTitle(e.target.value)}
-                    placeholder="Title"
+                    placeholder="題名"
                 />
                 <input
                     type="text"
                     value={author}
                     onChange={(e) => setAuthor(e.target.value)}
-                    placeholder="Author"
+                    placeholder="著者"
                 />
                 <div className="form-row">
                     <div>
@@ -64,7 +63,7 @@ function EditBookForm() {
                             type="date"
                             value={readingdate}
                             onChange={(e) => setReadingdate(e.target.value)}
-                            placeholder="Reading Date"
+                            placeholder="読了日"
                         />
                     </div>
                     <div>
@@ -72,7 +71,7 @@ function EditBookForm() {
                             type="number"
                             value={rate}
                             onChange={(e) => setRate(e.target.value)}
-                            placeholder="Rate"
+                            placeholder="評価"
                         />
                     </div>
                     <div>
@@ -80,7 +79,7 @@ function EditBookForm() {
                             value={category}
                             onChange={(e) => setCategory(e.target.value)}
                         >
-                            <option value="">Select Category</option>
+                            <option value="">カテゴリを選択して下さい</option>
                             <option value="novel">小説</option>
                             <option value="essay">エッセイ</option>
                             <option value="practical">実用書</option>
@@ -90,9 +89,9 @@ function EditBookForm() {
                 <textarea
                     value={text}
                     onChange={(e) => setText(e.target.value)}
-                    placeholder="Text"
+                    placeholder="感想"
                 />
-                <button type="submit">Update</button>
+                <button type="submit">上書き</button>
             </form>
         </div>
     );

@@ -27,17 +27,16 @@ function App() {
     return (
         <Router>
             <div className="App">
-                <h1>私の本棚</h1>
-                <nav>
-                    <ul>
-                        <li>
-                            <Link to="/">Home</Link>
-                        </li>
-                        <li>
-                            <Link to="/add">書籍登録</Link>
-                        </li>
-                    </ul>
-                </nav>
+                <div className="header">
+                    <h1>私の本棚</h1>
+                    <img  src="/makimono.png" alt="Bookshelf Image" className="header-image" />
+                    <nav>
+                        <ul>
+                            <li><Link to="/">ホーム</Link></li>
+                            <li><Link to="/add">書籍登録</Link></li>
+                        </ul>
+                    </nav>
+                </div>
                 <Routes> 
                     <Route path="/" element={<BookList onDelete={deleteBook} />} />
                     <Route path="/add" element={<BookForm />} />

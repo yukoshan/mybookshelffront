@@ -11,7 +11,7 @@ function DeleteButton({ id, onDelete }) {
     };
 
     return (
-        <button onClick={handleClick}>Delete</button>
+        <button onClick={handleClick}>削除</button>
     );
 }
 

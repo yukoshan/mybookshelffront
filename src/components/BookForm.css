@@ -1,9 +1,8 @@
-/* BookForm.css */
 .container {
   max-width: 600px;
   margin: auto;
   padding: 20px;
-  background-color: #f8f9fa;
+  background-color: #f1e9d0;
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }

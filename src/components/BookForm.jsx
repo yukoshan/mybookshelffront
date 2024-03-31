@@ -22,7 +22,7 @@ function BookForm() {
         })
             .then((response) => response.json())
             .then(() => {
-                navigate('/'); // 一覧画面に戻る
+                navigate('/');
             });
     };
 
@@ -34,13 +34,13 @@ function BookForm() {
                     type="text"
                     value={title}
                     onChange={(e) => setTitle(e.target.value)}
-                    placeholder="Title"
+                    placeholder="題名"
                 />
                 <input
                     type="text"
                     value={author}
                     onChange={(e) => setAuthor(e.target.value)}
-                    placeholder="Author"
+                    placeholder="著者"
                 />
                 <div className="form-row">
                     <div>
@@ -48,7 +48,7 @@ function BookForm() {
                             type="date"
                             value={readingdate}
                             onChange={(e) => setReadingdate(e.target.value)}
-                            placeholder="Reading Date"
+                            placeholder="読了日"
                         />
                     </div>
                     <div>
@@ -56,7 +56,7 @@ function BookForm() {
                             type="number"
                             value={rate}
                             onChange={(e) => setRate(e.target.value)}
-                            placeholder="Rate"
+                            placeholder="評価"
                         />
                     </div>
                     <div>
@@ -64,7 +64,7 @@ function BookForm() {
                             value={category}
                             onChange={(e) => setCategory(e.target.value)}
                         >
-                            <option value="">Select Category</option>
+                            <option value="">カテゴリを選択して下さい</option>
                             <option value="novel">小説</option>
                             <option value="essay">エッセイ</option>
                             <option value="practical">実用書</option>
@@ -74,9 +74,9 @@ function BookForm() {
                 <textarea
                     value={text}
                     onChange={(e) => setText(e.target.value)}
-                    placeholder="Text"
+                    placeholder="感想"
                 />
-                <button type="submit">Submit</button>
+                <button type="submit">登録</button>
             </form>
         </div>
     );

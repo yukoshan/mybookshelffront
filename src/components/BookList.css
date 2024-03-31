@@ -1,4 +1,3 @@
-/* BookList.css */
 .container {
   max-width: 800px;
   margin: auto;
@@ -50,21 +49,63 @@ li a:hover {
     text-decoration: none;
 }
 
+.book-info {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.book-title {
+  width: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.book-author {
+  width: 150px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.buttons {
+  margin-left: auto;
+}
+
+.buttons a,
+.buttons button {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  cursor: pointer;
+  text-decoration: none;
+  margin-left: 10px;
+}
+
 .buttons a {
-    background-color: #007bff;
+  background-color: #007bff;
 }
 
 .buttons a:hover {
-    background-color: #0056b3;
-    color: white;
+  background-color: #0056b3;
+  color: white;
 }
 
 .buttons button {
-    background-color: #dc3545;
+  background-color: #dc3545;
 }
 
 .buttons button:hover {
-    background-color: #c82333;
+  background-color: #c82333;
 }
 
-
+li {
+  display: flex;
+  align-items: center;
+  background-color: #f8f9fa;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}

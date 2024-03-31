@@ -7,7 +7,6 @@ function BookList({ onDelete }) {
     const [books, setBooks] = useState([]);
 
     useEffect(() => {
-        // APIから本のリストを取得
         fetch('http://127.0.0.1:8000/api/books/')
             .then((response) => response.json())
             .then((data) => setBooks(data));
@@ -19,9 +18,12 @@ function BookList({ onDelete }) {
             <ul>
                 {books.map((book) => (
                     <li key={book.id}>
-                        <span>{book.title} - {book.author}</span>
+                        <div className="book-info">
+                            <span className="book-title">{book.title}</span>
+                            <span className="book-author">{book.author}</span>
+                        </div>
                         <div className="buttons">
-                            <Link to={`/edit/${book.id}`}>Edit</Link>
+                            <Link to={`/edit/${book.id}`}>編集</Link>
                             <DeleteButton id={book.id} onDelete={onDelete} />
                         </div>
                     </li>

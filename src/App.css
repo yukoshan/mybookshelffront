@@ -3,20 +3,44 @@
   max-width: 800px;
   margin: 0 auto;
   padding: 20px;
-  background-color: #f8e7d3;
+  background-color: #f1e9d0;
+  color: #43311F;
   font-family: '游明朝','Yu Mincho',YuMincho,'Hiragino Mincho Pro',serif;
+}
+
+h1 {
+  color: #333;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header h1, .header img {
+  margin-right: auto;
+}
+
+.header-image {
+  width: 48px;
+  height: 48px;
+  object-fit: cover;
 }
 
 nav ul {
   list-style: none;
   padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 10px;
 }
 
-nav ul li {
-  display: inline-block;
-  margin-right: 20px;
+nav ul li a {
+  text-decoration: none;
+  color: #007bff;
 }
 
-h1 {
-  color: #333;
+nav ul li a:hover {
+  text-decoration: underline;
 }
